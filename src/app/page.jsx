@@ -32,17 +32,18 @@ export default async function Home() {
           >
             Maximize productivity with minimal effort using our task solution
           </p>
-
+        </div>
+        <div className="z-10">
           {session ? (
             <Button
-              className="ms-[100px] ml-[110px] md:absolute md:left-[-10px] md:top-[220px] h-[40px]"
+              className="md:absolute md:left-[95px] md:top-[220px] h-[40px]"
               size="lg"
             >
               You are logged in
             </Button>
           ) : (
             <Button
-              className="ms-[100px] md:absolute ml-[78px] md:left-3 md:top-[220px] h-[40px]"
+              className="md:absolute md:ml-[85px] md:left-3 md:top-[220px] h-[40px]"
               size="lg"
             >
               Login above to get Started
