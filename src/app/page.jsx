@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { getServerSession } from "next-auth";
+import { signIn } from "next-auth/react";
 
 import { Arvo } from "next/font/google";
 import Image from "next/image";
@@ -32,12 +33,22 @@ export default async function Home() {
           >
             Maximize productivity with minimal effort using our task solution
           </p>
-          <Button
-            className="ms-[100px] md:absolute md:left-0 md:top-[220px] h-[40px]"
-            size="lg"
-          >
-            {session ? "You are logged in" : "Login to get Started"}
-          </Button>
+
+          {session ? (
+            <Button
+              className="ms-[100px] md:absolute md:left-0 md:top-[220px] h-[40px]"
+              size="lg"
+            >
+              You are logged in
+            </Button>
+          ) : (
+            <Button
+              className="ms-[100px] md:absolute md:left-0 md:top-[220px] h-[40px]"
+              size="lg"
+            >
+              Login above to get Started
+            </Button>
+          )}
         </div>
       </div>
     </div>
