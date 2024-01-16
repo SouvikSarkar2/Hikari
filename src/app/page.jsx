@@ -21,7 +21,7 @@ export default async function Home() {
       />
       <div className="h-dvh flex justify-center items-center flex-col">
         <h1
-          className={`text-5xl z-10 absolute top-[280px] md:top-[120px] md:left-[100px] ${arvo.className}`}
+          className={`text-5xl z-10 absolute top-[240px] md:top-[120px] md:left-[100px] ${arvo.className}`}
         >
           HIKARI
         </h1>
