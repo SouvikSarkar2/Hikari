@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 
 const DashboardNavbar = () => {
   return (
-    <div>
+    <div className="bg-[#FEDBC5] h-[60px] flex items-center justify-between p-5">
       <SignoutButton />
     </div>
   );

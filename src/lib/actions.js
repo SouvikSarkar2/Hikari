@@ -2,7 +2,7 @@
 
 import { getServerSession } from "next-auth";
 import { Task } from "./models";
-import { connectToDb } from "./utils";
+import { connectToDb } from "./util";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 

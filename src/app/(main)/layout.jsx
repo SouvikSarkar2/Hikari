@@ -6,10 +6,12 @@ const DashboardLayout = async ({ children }) => {
   const session = await getServerSession();
   if (!session) redirect("/");
   return (
-    <div>
-      <DashboardNavbar />
-      {children}
-    </div>
+    <>
+      <div>
+        <DashboardNavbar />
+        {children}
+      </div>
+    </>
   );
 };
 

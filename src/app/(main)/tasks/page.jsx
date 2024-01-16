@@ -1,7 +1,6 @@
 import IndTask from "@/components/Task";
 import { getTask } from "@/lib/data";
-import { Task } from "@/lib/models";
-import { connectToDb } from "@/lib/utils";
+
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 
@@ -11,23 +10,29 @@ const Tasks = async () => {
   const session = await getServerSession();
   //console.log(session.user.email);
   const tasks = await getTask({ email: session.user.email });
-  console.log(tasks);
+  //console.log(tasks);
 
   return (
     <>
-      <div className="bg-sky-400 h-screen ">
-        <div className="flex justify-center text-3xl p-5">TASKS</div>
+      <div className="bg-[#FEDBC5] h-dvh overflow-x-scroll">
+        <div
+          className="flex justify-center text-4xl md:text-6xl p-5 md:pb-10"
+          style={{ fontFamily: "Oswald", fontWeight: 700 }}
+        >
+          TASKS
+        </div>
         <div className="flex justify-center items-center gap-10 flex-wrap">
-          {tasks.map((task) => (
+          {tasks?.map((task) => (
             <IndTask task={task} key={task._id} />
           ))}
           <Link
-            className="h-[200px] w-[200px] bg-sky-800 flex justify-center items-center text-3xl text-white"
+            className="h-[60px] w-[60px] flex justify-center items-center text-5xl text-white absolute bottom-5 right-7 rounded-full pb-3 bg-[#540132]"
             href="/new"
           >
-            Add Task
+            +
           </Link>
         </div>
+        <div className="h-[100px]"></div>
       </div>
     </>
   );

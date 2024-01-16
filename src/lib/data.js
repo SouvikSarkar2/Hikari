@@ -1,5 +1,5 @@
 import { Task } from "./models";
-import { connectToDb } from "./utils";
+import { connectToDb } from "./util";
 
 export const getTask = async ({ email }) => {
   try {

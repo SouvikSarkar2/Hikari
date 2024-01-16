@@ -1,19 +1,40 @@
 import { deleteTask } from "@/lib/actions";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "./ui/button";
 
 const IndTask = ({ task }) => {
   return (
-    <div className="h-[200px] w-[200px] bg-sky-800 relative">
-      <div className="text-2xl flex justify-center h-[40px] text-white">
-        {task.title}
-      </div>
-      <div className="text-xl flex justify-center h-[160px] bg-sky-200">
-        {task.description}
-      </div>
-      <form action={deleteTask}>
-        <input type="hidden" name="id" value={task.id} />
-        <button className="absolute bottom-1 right-1 bg-red-400">delete</button>
-      </form>
-    </div>
+    <>
+      <Card className="h-[250px] w-[250px] relative">
+        <CardHeader>
+          <CardTitle className="flex justify-center ">{task.title}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <CardDescription className="overflow-hidden">
+            <p>{task.description}</p>
+          </CardDescription>
+        </CardContent>
+        <CardFooter>
+          <form action={deleteTask}>
+            <input type="hidden" name="id" value={task.id} />
+            <Button
+              variant="destructive"
+              size="sm"
+              className="absolute bottom-1 right-1"
+            >
+              delete
+            </Button>
+          </form>
+        </CardFooter>
+      </Card>
+    </>
   );
 };
 
