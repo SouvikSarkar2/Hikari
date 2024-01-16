@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { getServerSession } from "next-auth";
-import { signIn } from "next-auth/react";
 
 import { Arvo } from "next/font/google";
 import Image from "next/image";
@@ -36,14 +35,14 @@ export default async function Home() {
 
           {session ? (
             <Button
-              className="ms-[100px] md:absolute md:left-0 md:top-[220px] h-[40px]"
+              className="ms-[100px] ml-[110px] md:absolute md:left-[-10px] md:top-[220px] h-[40px]"
               size="lg"
             >
               You are logged in
             </Button>
           ) : (
             <Button
-              className="ms-[100px] md:absolute md:left-0 md:top-[220px] h-[40px]"
+              className="ms-[100px] md:absolute ml-[85px] md:left-3 md:top-[220px] h-[40px]"
               size="lg"
             >
               Login above to get Started
