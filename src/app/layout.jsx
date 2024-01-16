@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import SessionProvider from "@/components/SessionProvider";
 
 export const metadata = {
-  title: "HIKARI",
+  title: "HIKARI ",
   description: "A simple to do app",
 };
 
