@@ -42,7 +42,7 @@ export default async function Home() {
             </Button>
           ) : (
             <Button
-              className="ms-[100px] md:absolute ml-[85px] md:left-3 md:top-[220px] h-[40px]"
+              className="ms-[100px] md:absolute ml-[78px] md:left-3 md:top-[220px] h-[40px]"
               size="lg"
             >
               Login above to get Started
