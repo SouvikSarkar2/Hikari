@@ -1,15 +1,16 @@
 import IndTask from "@/components/Task";
 import { getTask } from "@/lib/data";
-
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 
 import React from "react";
 
-const Tasks = async () => {
+const Tasks = async (req, res) => {
   const session = await getServerSession();
+
+  console.log("Session from tasks :", session);
   //console.log(session.user.email);
-  const tasks = await getTask({ email: session.user.email });
+  const tasks = await getTask({ email: session?.user?.email });
   //console.log(tasks);
 
   return (

@@ -11,4 +11,21 @@ const taskSchema = new Schema(
   }
 );
 
+const userSchema = new Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export const User = mongoose.models.User || mongoose.model("User", userSchema);
 export const Task = mongoose.models.Task || mongoose.model("Task", taskSchema);

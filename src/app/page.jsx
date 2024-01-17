@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 
 import { Arvo } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 const arvo = Arvo({ weight: "400", subsets: ["latin"] });
 
@@ -30,7 +31,7 @@ export default async function Home() {
             className=" text-center font-bold p-4 mt-[-30px] md:mt-0 md:p-3 md:absolute md:top-[165px] md:left-[92px] text-xl"
             style={{ fontFamily: "Rubik", fontWeight: 700 }}
           >
-            Maximize productivity with minimal effort using our task solution
+            Your Personal To-Do app
           </p>
         </div>
         <div className="z-10">
@@ -39,14 +40,14 @@ export default async function Home() {
               className="md:absolute md:left-[95px] md:top-[220px] h-[40px]"
               size="lg"
             >
-              You are logged in
+              <Link href="/tasks">You are logged in</Link>
             </Button>
           ) : (
             <Button
               className="md:absolute md:ml-[85px] md:left-3 md:top-[220px] h-[40px]"
               size="lg"
             >
-              Login above to get Started
+              <Link href="/auth/signin"> Login to get Started</Link>
             </Button>
           )}
         </div>

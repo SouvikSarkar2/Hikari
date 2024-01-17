@@ -12,7 +12,7 @@ import { Button } from "./ui/button";
 const IndTask = ({ task }) => {
   return (
     <>
-      <Card className="h-[250px] w-[250px] relative">
+      <Card className="h-[250px] w-[250px] relative bg-orange-50">
         <CardHeader>
           <CardTitle className="flex justify-center ">{task.title}</CardTitle>
         </CardHeader>
