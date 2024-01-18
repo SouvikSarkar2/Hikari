@@ -2,7 +2,8 @@ import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { getUser } from "@/lib/data";
+import bcrypt from "bcrypt";
+import { User } from "@/lib/models";
 
 export const authOptions = {
   providers: [
@@ -14,8 +15,37 @@ export const authOptions = {
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
+    CredentialsProvider({
+      name: "credentails",
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials, req) {
+        const username = credentials.username;
+        const password = credentials.password;
+        /* console.log(credentials); */
+        if (!credentials.username || !credentials.password) {
+          return null;
+        }
+        const dbUser = await User.find({ username });
+        const isPasswordCorrect = await bcrypt.compare(
+          password,
+          dbUser[0].password
+        );
+        if (!isPasswordCorrect) {
+          throw new Error("wrong credentials");
+        }
+        const user = { name: username, email: username };
+        return user;
+      },
+    }),
   ],
-
+  session: {
+    strategy: "jwt",
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === "development",
   pages: {
     signIn: "/auth/signin",
   },

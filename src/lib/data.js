@@ -14,7 +14,7 @@ export const getTask = async ({ email }) => {
 export const getUser = async ({ username, password }) => {
   try {
     connectToDb();
-    const user = await User.find({ username, password }).lean().exec();
+    const user = await User.find({ username, password });
 
     return user;
   } catch (err) {

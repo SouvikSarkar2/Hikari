@@ -1,6 +1,7 @@
 import "./globals.css";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/components/SessionProvider";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "HIKARI ",
@@ -12,7 +13,9 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="overflow-hidden bg-[#FEDBC5]">
-        <SessionProvider session={session}>{children}</SessionProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <SessionProvider session={session}>{children}</SessionProvider>
+        </Suspense>
       </body>
     </html>
   );

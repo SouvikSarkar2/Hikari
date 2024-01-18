@@ -33,7 +33,7 @@ const TaskAddForm = () => {
           onClick={() => {
             setTimeout(() => {
               router.push("/tasks");
-            }, [800]);
+            }, 0);
           }}
         >
           Create

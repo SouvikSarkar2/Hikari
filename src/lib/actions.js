@@ -1,9 +1,9 @@
 "use server";
 
 import { getServerSession } from "next-auth";
-import { Task } from "./models";
+import { Task, User } from "./models";
 import { connectToDb } from "./util";
-import { redirect } from "next/navigation";
+import bcrypt from "bcrypt";
 import { revalidatePath } from "next/cache";
 
 export const addTask = async (previousstate, formData) => {
@@ -37,5 +37,26 @@ export const deleteTask = async (formData) => {
     revalidatePath("/tasks");
   } catch (error) {
     console.log("error deleting task :", error);
+  }
+};
+
+export const addUser = async ({ username, password }) => {
+  try {
+    connectToDb();
+    const user = await User.find({ username });
+    console.log(user);
+    if (user.length === 1) {
+      return { error: "Username Already exists" };
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    const newUser = new User({
+      username,
+      password: hashedPassword,
+    });
+    await newUser.save();
+  } catch (error) {
+    console.log("error creating User :", error);
   }
 };
