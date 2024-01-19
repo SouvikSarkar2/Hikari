@@ -4,6 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import { User } from "@/lib/models";
+import { connectToDb } from "@/lib/util";
 
 export const authOptions = {
   providers: [
@@ -28,6 +29,7 @@ export const authOptions = {
         if (!credentials.username || !credentials.password) {
           return null;
         }
+        await connectToDb();
         const dbUser = await User.find({ username });
         const isPasswordCorrect = await bcrypt.compare(
           password,
