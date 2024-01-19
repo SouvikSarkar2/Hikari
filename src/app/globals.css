@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import "../styles/fonts.css";
+
+* {
+  cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232F0F2A" width="24px" height="24px"%3E%3Ccircle cx="12" cy="12" r="8" stroke="%232F0F2A" stroke-width="2"%3E%3C/circle%3E%3C/svg%3E'),
+    auto;
+}

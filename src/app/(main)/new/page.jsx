@@ -1,4 +1,6 @@
 import TaskAddForm from "@/components/TaskAddForm";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -8,6 +10,9 @@ const page = () => {
       </div>
       <div className="pt-0">
         <TaskAddForm />
+        <Button className="absolute bottom-10 right-10">
+          <Link href="/tasks">Go back</Link>{" "}
+        </Button>
       </div>
     </div>
   );

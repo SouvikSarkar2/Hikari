@@ -2,18 +2,31 @@
 
 import GithubButton from "@/components/GithubButton";
 import GoogleButton from "@/components/GoogleButton";
+import Loader from "@/components/Loader/Loader";
 import UserSigninForm from "@/components/UserSigninForm";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useState } from "react";
 
-const signin = () => {
+const Signin = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   async function handleGithubSignin() {
-    await signIn("github", { callbackUrl: "http://localhost:3000" });
+    setIsLoading(true);
+    await signIn("github", {
+      callbackUrl: "/",
+    });
   }
 
   async function handleGoogleSignin() {
-    await signIn("google", { callbackUrl: "http://localhost:3000" });
+    setIsLoading(true);
+    await signIn("google", { callbackUrl: "/" });
   }
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div>
       <div className="flex text-5xl md:text-7xl font-[Oswald] justify-center  h-[120px]">
@@ -45,4 +58,4 @@ const signin = () => {
   );
 };
 
-export default signin;
+export default Signin;

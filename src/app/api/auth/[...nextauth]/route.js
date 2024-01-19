@@ -31,6 +31,9 @@ export const authOptions = {
         }
         await connectToDb();
         const dbUser = await User.find({ username });
+        if (dbUser.length === 0) {
+          throw new Error("Username Doesnt exists");
+        }
         const isPasswordCorrect = await bcrypt.compare(
           password,
           dbUser[0].password

@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader/Loader";
 import IndTask from "@/components/Task";
 import { getTask } from "@/lib/data";
 import { getServerSession } from "next-auth";
@@ -5,13 +6,15 @@ import Link from "next/link";
 
 import React from "react";
 
-const Tasks = async (req, res) => {
+const Tasks = async () => {
   const session = await getServerSession();
-
   console.log("Session from tasks :", session);
   //console.log(session.user.email);
   const tasks = await getTask({ email: session?.user?.email });
-  //console.log(tasks);
+
+  if (!tasks) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -23,6 +26,9 @@ const Tasks = async (req, res) => {
           TASKS
         </div>
         <div className="flex justify-center items-center gap-10 flex-wrap">
+          {tasks.length === 0 && (
+            <p className="font-[Oswald] text-2xl">Start by adding some Tasks</p>
+          )}
           {tasks?.map((task) => (
             <IndTask task={task} key={task._id} />
           ))}
