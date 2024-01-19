@@ -4,7 +4,6 @@ import GithubButton from "@/components/GithubButton";
 import GoogleButton from "@/components/GoogleButton";
 import UserSigninForm from "@/components/UserSigninForm";
 import { signIn } from "next-auth/react";
-import { revalidatePath } from "next/cache";
 import Link from "next/link";
 
 const signin = () => {
@@ -34,7 +33,7 @@ const signin = () => {
             <hr className="h-[5px] w-[120px] md:w-[200px] my-2 bg-black" />
           </span>
           <UserSigninForm />
-          <div className="text-md flex w-[300px] justify-center  absolute bottom-[75px] md:bottom-[110px]">
+          <div className="text-md flex w-[300px] justify-center  absolute bottom-[75px] md:bottom-[80px]">
             Dont have an account?&nbsp;&nbsp;
             <Link href="/auth/signup" className="font-bold">
               Sign Up
