@@ -9,6 +9,7 @@ const DashboardLayout = async ({ children }) => {
     <>
       <div>
         <DashboardNavbar />
+
         {children}
       </div>
     </>

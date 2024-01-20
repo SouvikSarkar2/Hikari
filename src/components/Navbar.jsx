@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Loader from "./Loader/Loader";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +24,22 @@ const Navbar = () => {
           <Button
             variant="destructive"
             className="hover:bg-[#FEDBC5] hover:text-black"
-            onClick={() => signOut()}
+            onClick={() => {
+              toast.success("Successfully Logged Out", {
+                style: {
+                  border: "1px solid #713200",
+                  padding: "16px",
+                  color: "#713200",
+                },
+                iconTheme: {
+                  primary: "white",
+                  secondary: "#713200",
+                },
+              });
+              setTimeout(() => {
+                signOut();
+              }, 1000);
+            }}
           >
             Logout
           </Button>

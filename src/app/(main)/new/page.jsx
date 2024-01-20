@@ -10,9 +10,9 @@ const page = () => {
       </div>
       <div className="pt-0">
         <TaskAddForm />
-        <Button className="absolute bottom-10 right-10">
-          <Link href="/tasks">Go back</Link>{" "}
-        </Button>
+        <Link href="/tasks">
+          <Button className="absolute bottom-10 right-10">Go back</Button>
+        </Link>
       </div>
     </div>
   );

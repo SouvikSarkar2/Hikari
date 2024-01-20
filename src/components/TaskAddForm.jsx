@@ -1,21 +1,30 @@
 "use client";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useFormState } from "react-dom";
 import { addTask } from "@/lib/actions";
-import { redirect, useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
+import { useRouter } from "next/navigation";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 
-const notify = () => toast.success("Task Added Succesfully");
+const notify = () =>
+  toast.success("Task Added Succesfully", {
+    style: {
+      border: "1px solid black",
+      padding: "16px",
+      color: "black",
+    },
+    iconTheme: {
+      primary: "white",
+      secondary: "black",
+    },
+  });
 
 const TaskAddForm = () => {
   const router = useRouter();
   const [state, formAction] = useFormState(addTask, undefined);
   return (
     <div>
-      <Toaster />
       <form
         className="flex flex-col mb-[100px] gap-3 md:w-[500px] md:mt-[150px]"
         action={formAction}
@@ -37,7 +46,7 @@ const TaskAddForm = () => {
             notify();
             setTimeout(() => {
               router.push("/tasks");
-            }, 2000);
+            }, 0);
           }}
         >
           Create

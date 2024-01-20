@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const UserSigninForm = () => {
   const router = useRouter();
@@ -28,6 +29,17 @@ const UserSigninForm = () => {
         const err = res.error;
         throw new Error(err);
       }
+      toast.success("Successfully Logged in", {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#713200",
+        },
+        iconTheme: {
+          primary: "white",
+          secondary: "#713200",
+        },
+      });
       router.push("/tasks");
     } catch (error) {
       console.log(error);

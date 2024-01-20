@@ -14,13 +14,13 @@ const Signin = () => {
   async function handleGithubSignin() {
     setIsLoading(true);
     await signIn("github", {
-      callbackUrl: "/",
+      callbackUrl: "/tasks",
     });
   }
 
   async function handleGoogleSignin() {
     setIsLoading(true);
-    await signIn("google", { callbackUrl: "/" });
+    await signIn("google", { callbackUrl: "/tasks" });
   }
 
   if (isLoading) {
@@ -48,7 +48,7 @@ const Signin = () => {
           <UserSigninForm />
           <div className="text-md flex w-[300px] justify-center  absolute bottom-[75px] md:bottom-[80px]">
             Dont have an account?&nbsp;&nbsp;
-            <Link href="/auth/signup" className="font-bold">
+            <Link href="/auth/signup" className="font-bold cursor-pointer">
               Sign Up
             </Link>
           </div>

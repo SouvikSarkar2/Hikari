@@ -28,12 +28,31 @@ export const addTask = async (previousstate, formData) => {
   }
 };
 
-export const deleteTask = async (formData) => {
-  const { id } = Object.fromEntries(formData);
+export const editTask = async (formData) => {
+  const { id, title, description } = Object.fromEntries(formData);
 
   try {
     connectToDb();
-    await Task.findByIdAndDelete(id);
+
+    const existingTask = await Task.findByIdAndUpdate(
+      id,
+      { title, description },
+      { new: true }
+    );
+
+    revalidatePath("/tasks");
+  } catch (error) {
+    console.log("Error editing task:", error);
+  }
+};
+
+export const deleteTask = async (id) => {
+  //const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDb();
+    const req = await Task.findByIdAndDelete(id);
+    console.log(req);
     revalidatePath("/tasks");
   } catch (error) {
     console.log("error deleting task :", error);
