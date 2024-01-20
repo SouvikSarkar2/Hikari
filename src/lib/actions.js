@@ -28,7 +28,7 @@ export const addTask = async (previousstate, formData) => {
   }
 };
 
-export const editTask = async (formData) => {
+export const editTask = async (previousstate, formData) => {
   const { id, title, description } = Object.fromEntries(formData);
 
   try {

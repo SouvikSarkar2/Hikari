@@ -1,5 +1,16 @@
 "use client";
 
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+
 import toast from "react-hot-toast";
 import { deleteTask } from "@/lib/actions";
 import {
@@ -13,7 +24,8 @@ import {
 import { Button } from "./ui/button";
 import Loader from "./Loader/Loader";
 import { useEffect, useState } from "react";
-import { redirect } from "next/dist/server/api-utils";
+import TaskAddForm from "./TaskAddForm";
+import TaskEditForm from "./TaskEditForm";
 
 const IndTask = ({ task }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,8 +46,6 @@ const IndTask = ({ task }) => {
       },
     });
   }
-
-  async function handleEdit() {}
 
   useEffect(() => {
     if (task) {
@@ -63,9 +73,25 @@ const IndTask = ({ task }) => {
             variant="default"
             size="sm"
             className="absolute bottom-1 right-[67px]"
-            onClick={handleEdit}
           >
-            Edit
+            <Drawer className="">
+              <DrawerTrigger>Edit</DrawerTrigger>
+              <DrawerContent className="bg-[#FEDBC5]">
+                <DrawerHeader className="">
+                  <DrawerTitle className="p-10 flex justify-center">
+                    Edit Task Here...
+                  </DrawerTitle>
+                  <DrawerDescription className="md:flex md:justify-center">
+                    <TaskEditForm task={task} />
+                  </DrawerDescription>
+                </DrawerHeader>
+                <DrawerFooter>
+                  <DrawerClose className="mt-[-20px] flex justify-end">
+                    <Button variant="default">Cancel</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
           </Button>
           <Button
             variant="destructive"
