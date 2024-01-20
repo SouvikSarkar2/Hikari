@@ -46,12 +46,14 @@ export default async function Home() {
                 <Link href="/tasks">You are logged in</Link>
               </Button>
             ) : (
-              <Button
-                className="md:absolute md:ml-[85px] md:left-3 md:top-[220px] h-[40px]"
-                size="lg"
-              >
-                <Link href="/auth/signin"> Login to get Started</Link>
-              </Button>
+              <Link href="/auth/signin" className="cursor-pointer">
+                <Button
+                  className="md:absolute md:ml-[85px] md:left-3 md:top-[220px] h-[40px] "
+                  size="lg"
+                >
+                  Login to get Started
+                </Button>
+              </Link>
             )}
           </div>
         </div>
