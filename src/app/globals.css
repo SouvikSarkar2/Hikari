@@ -6,4 +6,17 @@
 * {
   cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23000000" width="18px" height="18px"%3E%3Ccircle cx="12" cy="12" r="7" stroke="%23000000" stroke-width="2"%3E%3C/circle%3E%3C/svg%3E'),
     auto;
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #fedbc5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #f76244;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: black;
+  }
 }
