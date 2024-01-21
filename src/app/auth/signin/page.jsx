@@ -46,7 +46,7 @@ const Signin = () => {
             <hr className="h-[5px] w-[120px] md:w-[200px] my-2 bg-black" />
           </span>
           <UserSigninForm />
-          <div className="text-md flex w-[300px] justify-center  absolute bottom-[75px] md:bottom-[80px]">
+          <div className="text-md flex w-[300px] justify-center h-[420px] items-end  absolute  ">
             Dont have an account?&nbsp;&nbsp;
             <Link href="/auth/signup" className="font-bold cursor-pointer">
               Sign Up
