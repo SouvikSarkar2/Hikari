@@ -21,7 +21,7 @@ const Signin = () => {
   async function handleGoogleSignin() {
     setIsLoading(true);
     await signIn("google", {
-      callbackUrl: "https://hikari-dusky.vercel.app/tasks",
+      callbackUrl: "/tasks",
     });
   }
 
