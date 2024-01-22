@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 const GithubButton = ({ handleGithubSignin }) => {
   return (
     <Button
-      className="w-[130px] rounded-xl  text-sm hover:bg-[#FEDBC5] hover:text-black py-5 md:w-[225px] md:py-6 md:text-[15px]"
+      className="w-[130px] rounded-xl  text-sm hover:bg-[#FEDBC5] hover:text-black py-5 md:w-[225px] md:py-6 md:text-[15px] cursor-pointer"
       onClick={() => handleGithubSignin()}
       size="sm"
     >
