@@ -58,7 +58,7 @@ const UserSigninForm = () => {
           type="text"
           name="username"
           placeholder="username"
-          className="bg-white"
+          className="bg-white dark:bg-[#413934] dark:placeholder:text-white"
           value={data.username}
           onChange={(e) => {
             setData({ ...data, username: e.target.value });
@@ -69,13 +69,15 @@ const UserSigninForm = () => {
           type="password"
           name="password"
           placeholder="password"
-          className="bg-white"
+          className="bg-white dark:bg-[#413934] dark:placeholder:text-white"
           value={data.password}
           onChange={(e) => {
             setData({ ...data, password: e.target.value });
           }}
         />
-        <Button>Signin</Button>
+        <Button className="bg-black text-white dark:bg-[#da9c78] dark:text-black">
+          Signin
+        </Button>
         <p className="flex justify-center text-red-500 text-lg ">{error}</p>
       </form>
     </div>

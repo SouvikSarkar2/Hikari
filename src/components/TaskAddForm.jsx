@@ -33,15 +33,16 @@ const TaskAddForm = () => {
           type="text"
           name="title"
           placeholder="title"
-          className="bg-white"
+          className="bg-white dark:bg-[#413934] dark:placeholder:text-white"
         />
         <Textarea
           type="text"
           name="description"
           placeholder="description"
-          className="bg-white h-[150px]"
+          className="bg-white max-h-[150px] min-h-[150px] dark:bg-[#413934] dark:placeholder:text-white"
         />
         <Button
+          className="bg-black text-white dark:bg-[#DA9C78] dark:text-black"
           onClick={() => {
             notify();
             setTimeout(() => {

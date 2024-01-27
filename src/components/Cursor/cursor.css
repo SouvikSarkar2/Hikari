@@ -7,3 +7,7 @@
   z-index: 100;
   pointer-events: none;
 }
+
+.dark .cursor {
+  border: 1px solid #fedbc5;
+}

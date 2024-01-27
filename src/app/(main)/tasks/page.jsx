@@ -18,7 +18,7 @@ const Tasks = async () => {
   if (tasks) {
     return (
       <>
-        <div className="bg-[#FEDBC5] h-dvh overflow-x-scroll">
+        <div className="bg-[#FEDBC5] dark:bg-black h-dvh overflow-x-scroll ">
           <div
             className="flex justify-center text-4xl md:text-6xl p-5 md:pb-10"
             style={{ fontFamily: "Oswald", fontWeight: 700 }}
@@ -36,7 +36,7 @@ const Tasks = async () => {
               return <IndTask task={plainObject} key={task._id} />;
             })}
             <Link
-              className="h-[60px] w-[60px] flex justify-center items-center text-5xl text-white absolute bottom-5 right-7 rounded-full pb-3 bg-[#540132] cursor-pointer"
+              className="h-[60px] w-[60px] flex justify-center items-center text-5xl text-white absolute bottom-5 right-7 rounded-full pb-3 bg-[#540132] cursor-pointer dark:text-black dark:bg-[#da9c78]"
               href="/new"
             >
               +

@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Loader from "./Loader/Loader";
 import toast from "react-hot-toast";
+import ThemeSwitch from "./ThemeSwitch";
 
 const Navbar = () => {
   const [isLoading, setIsLoading] = useState(false);

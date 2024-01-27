@@ -33,19 +33,19 @@ const TaskEditForm = ({ task }) => {
           type="text"
           name="title"
           placeholder="title"
-          className="bg-white"
+          className=" bg-white dark:bg-[#f0c3a8] dark:text-black"
           defaultValue={task.title}
         />
         <Textarea
           type="text"
           name="description"
           placeholder="description"
-          className="bg-white h-[150px]"
+          className=" h-[150px] bg-white dark:bg-[#f0c3a8] dark:text-black"
           defaultValue={task.description}
         />
         <DrawerClose>
           <Button
-            className="w-full"
+            className="w-full bg-black text-white dark:bg-[#da9c78] dark:text-black"
             onClick={() => {
               notify();
             }}

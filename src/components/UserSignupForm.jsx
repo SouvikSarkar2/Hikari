@@ -45,40 +45,42 @@ const UserSignupForm = () => {
         className="flex flex-col mb-[100px] gap-3 w-[280px] md:w-[450px] "
         onSubmit={handleSubmit}
       >
-        <p className="font-[Oswald] text-xl">Username</p>
+        <p className="font-[Oswald] text-xl select-none">Username</p>
         <Input
           type="text"
           name="username"
           placeholder="username"
-          className="bg-white"
+          className="bg-white dark:bg-[#413934] dark:placeholder:text-white"
           value={data.username}
           onChange={(e) => {
             setData({ ...data, username: e.target.value });
           }}
         />
-        <p className="font-[Oswald] text-xl">Password</p>
+        <p className="font-[Oswald] text-xl select-none">Password</p>
         <Input
           type="password"
           name="password"
           placeholder="password"
-          className="bg-white"
+          className="bg-white dark:bg-[#413934] dark:placeholder:text-white"
           value={data.password}
           onChange={(e) => {
             setData({ ...data, password: e.target.value });
           }}
         />
-        <p className="font-[Oswald] text-xl">Repeat Password</p>
+        <p className="font-[Oswald] text-xl select-none">Repeat Password</p>
         <Input
           type="password"
           name="repeatPassword"
           placeholder="password again"
-          className="bg-white"
+          className="bg-white dark:bg-[#413934] dark:placeholder:text-white"
           value={data.repeatPassword}
           onChange={(e) => {
             setData({ ...data, repeatPassword: e.target.value });
           }}
         />
-        <Button>Signup</Button>
+        <Button className="bg-black text-white dark:bg-[#da9c78] dark:text-black">
+          Signup
+        </Button>
         <p className="flex justify-center text-red-500 text-lg ">{error}</p>
       </form>
     </div>

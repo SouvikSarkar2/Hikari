@@ -7,7 +7,7 @@ const DashboardLayout = async ({ children }) => {
   if (!session) redirect("/");
   return (
     <>
-      <div>
+      <div className="dark:text-[#da9c78]">
         <DashboardNavbar />
 
         {children}

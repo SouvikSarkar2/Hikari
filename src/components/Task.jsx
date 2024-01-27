@@ -59,12 +59,14 @@ const IndTask = ({ task }) => {
 
   return (
     <>
-      <Card className="h-[250px] w-[250px] relative bg-orange-50">
+      <Card className="h-[250px] w-[250px] relative bg-orange-50 dark:bg-[#836656]">
         <CardHeader>
-          <CardTitle className="flex justify-center ">{task.title}</CardTitle>
+          <CardTitle className="flex justify-center dark:text-black">
+            {task.title}
+          </CardTitle>
         </CardHeader>
         <CardContent>
-          <CardDescription className="overflow-hidden">
+          <CardDescription className="overflow-hidden dark:text-black">
             <p>{task.description}</p>
           </CardDescription>
         </CardContent>
@@ -76,9 +78,9 @@ const IndTask = ({ task }) => {
           >
             <Drawer className="">
               <DrawerTrigger>Edit</DrawerTrigger>
-              <DrawerContent className="bg-[#FEDBC5]">
+              <DrawerContent className="bg-[#FEDBC5] dark:bg-black">
                 <DrawerHeader className="">
-                  <DrawerTitle className="p-10 flex justify-center">
+                  <DrawerTitle className="p-10 flex justify-center dark:text-[#f0c3a8]">
                     Edit Task Here...
                   </DrawerTitle>
                   <DrawerDescription className="md:flex md:justify-center">
@@ -96,7 +98,7 @@ const IndTask = ({ task }) => {
           <Button
             variant="destructive"
             size="sm"
-            className="absolute bottom-1 right-1"
+            className="absolute bottom-1 right-1 "
             onClick={handleDelete}
           >
             delete
