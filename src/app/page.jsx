@@ -23,7 +23,7 @@ export default async function Home() {
           width={1920}
           className="absolute bottom-0 md:bottom-[-180px]"
         />
-        <div className="h-dvh flex justify-center items-center flex-col">
+        <div className="h-dvh flex justify-center items-center flex-col bg-[#FEDBC5]">
           <h1
             className={`text-black text-5xl z-10 absolute top-[240px] md:top-[120px] md:left-[100px] ${arvo.className}`}
           >
