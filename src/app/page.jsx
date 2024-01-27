@@ -1,5 +1,6 @@
 import Loader from "@/components/Loader/Loader";
 import Navbar from "@/components/Navbar";
+import ThemeSwitch from "@/components/ThemeSwitch";
 import { Button } from "@/components/ui/button";
 import { getServerSession } from "next-auth";
 
@@ -14,7 +15,10 @@ export default async function Home() {
   const session = await getServerSession();
   return (
     <Suspense fallback={<Loader />}>
-      <div className="">
+      <div className="dark:brightness-75 relative">
+        <div className="absolute z-50 right-0 p-6 bg-[#FEDBC5]  dark:text-black">
+          <ThemeSwitch />
+        </div>
         <Navbar />
         <Image
           src="/bg6.jpg"
@@ -43,7 +47,7 @@ export default async function Home() {
                 className="md:absolute md:left-[95px] md:top-[220px] h-[40px]"
                 size="lg"
               >
-                <Link href="/tasks">You are logged in</Link>
+                <Link href="/tasks">Dashboard</Link>
               </Button>
             ) : (
               <Link href="/auth/signin" className="cursor-pointer">

@@ -24,7 +24,7 @@ const Navbar = () => {
         <>
           <Button
             variant="destructive"
-            className="hover:bg-[#FEDBC5] hover:text-black"
+            className="hover:bg-[#FEDBC5] hover:text-black select-none"
             onClick={() => {
               toast.success("Successfully Logged Out", {
                 style: {
@@ -46,15 +46,13 @@ const Navbar = () => {
           </Button>
           <Link href="/tasks">
             <Button
-              className="bg-[#2E102A] hover:bg-[#FEDBC5] hover:text-black"
+              className="bg-[#2E102A] hover:bg-[#FEDBC5] hover:text-black select-none"
               onClick={(isLoading) => setIsLoading(!isLoading)}
-            >
-              Dashboard
-            </Button>
+            ></Button>
           </Link>
         </>
       ) : (
-        <Button onClick={() => signIn()} className="bg-[#2E102A]">
+        <Button onClick={() => signIn()} className="bg-[#2E102A] select-none">
           Login
         </Button>
       )}
