@@ -59,7 +59,7 @@ const IndTask = ({ task }) => {
 
   return (
     <>
-      <Card className="h-[250px] w-[250px] relative bg-orange-50 dark:bg-[#836656]">
+      <Card className="min-h-[100px] w-[250px] relative bg-orange-50 dark:bg-[#836656]">
         <CardHeader>
           <CardTitle className="flex justify-center dark:text-black">
             {task.title}

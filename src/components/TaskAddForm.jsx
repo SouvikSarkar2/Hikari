@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 
 const notify = () =>
-  toast.success("Task Added Succesfully", {
+  toast.success("Task Added Successfully", {
     style: {
       border: "1px solid black",
       padding: "16px",
